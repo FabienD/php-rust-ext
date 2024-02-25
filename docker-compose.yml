@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+
+  php:
+    image: php-rust-base
+    container_name: php-rust-dev
+    build:
+      context: .
+    #user: ${DOCKER_UID:-1000}:${DOCKER_GID:-1000}
+    volumes:
+      - ./:/var/www

@@ -41,7 +41,8 @@
 		"vscode": {
 			"extensions": [
 				"serayuzgur.crates",
-				"rust-lang.rust-analyzer"
+				"rust-lang.rust-analyzer",
+				"k--kato.intellij-idea-keybindings"
 			]
 		}
 	},

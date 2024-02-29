@@ -42,7 +42,8 @@
 			"extensions": [
 				"serayuzgur.crates",
 				"rust-lang.rust-analyzer",
-				"k--kato.intellij-idea-keybindings"
+				"k--kato.intellij-idea-keybindings",
+				"1YiB.rust-bundle"
 			]
 		}
 	},

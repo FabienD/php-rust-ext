@@ -6,6 +6,9 @@ LABEL maintainer="fabien@myprod.net"
 # Prepare devcontainer
 RUN apt-get update && apt-get install -y --no-install-recommends \
     clang \
+    aspell \
+    aspell-fr \
+    aspell-en \
     && mkdir -p /workspaces
 
 # Switch user

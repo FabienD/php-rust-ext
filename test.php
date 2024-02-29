@@ -1,3 +1,5 @@
 <?php
 
-var_dump(hello_world("David"));
+$text = "Texte bourés de faute d'othographe.";
+
+var_dump(ispell_check($text, "fr_FR"));

@@ -1,8 +1,28 @@
 <?php
 
-$text = "A tuple is a colleection of values of different types. 
-Tuples are constructed using parentheses (), and each tuple itself is a value with type signature (T1, T2, ...), where T1, T2 are the types of its members. 
-Functions can use tuples to return multiple values, as tuples can hold any number of values.
-";
+include "test_header.php";
 
-var_dump(ispell_check($text, "en"));
+$testName = "PHP Ext";
+
+$i = 0;
+
+$checker = new SpellCheck("fr_FR");
+
+while ($i < $testsLoop) {
+
+    $misspellings = $checker->check($content);
+    
+    // foreach ($misspellings as $misspelling) {
+    //     print_r([
+    //         $misspelling->misspelled,
+    //         $misspelling->pos,
+    //         $misspelling->line,
+    //         $misspelling->suggestions
+    //     ]);
+    // }
+
+    unset($misspelling);
+    $i++;
+}
+
+include "test_footer.php";

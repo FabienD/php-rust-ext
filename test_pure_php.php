@@ -1,24 +1,29 @@
 <?php
 
-declare(strict_types=1);
+include "test_header.php";
 
 use PhpSpellcheck\Spellchecker\Aspell;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-
-$text = "A tuple is a colleection of values of different types. 
-Tuples are constructed using parentheses (), and each tuple itself is a value with type signature (T1, T2, ...), where T1, T2 are the types of its members. 
-Functions can use tuples to return multiple values, as tuples can hold any number of values.
-";
-
+$testName = "PHP Ext";
+$i = 0;
 $aspell = Aspell::create();
-$misspellings = $aspell->check($text, ['en_EN']);
 
-foreach ($misspellings as $misspelling) {
-    print_r([
-        $misspelling->getWord(),
-        $misspelling->getLineNumber(),
-        $misspelling->getOffset(),
-    ]);
+while ($i < $testsLoop) {    
+    $misspellings = $aspell->check($content, ['fr_FR']);
+
+    // foreach ($misspellings as $misspelling) {
+    //     print_r([
+    //         $misspelling->getWord(),
+    //         $misspelling->getLineNumber(),
+    //         $misspelling->getOffset(),
+    //         $misspelling->getSuggestions(),
+    //     ]);
+    // }
+
+    unset($misspelling);
+    $i++;
 }
+
+include "test_footer.php";

@@ -2,16 +2,16 @@
 
 include "test_header.php";
 
-use PhpSpellcheck\Spellchecker\Aspell;
+use PhpSpellcheck\Spellchecker\PHPPspell;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 $testName = "PHP Ext";
 $i = 0;
-$aspell = Aspell::create();
+$checker = new PHPPspell();
 
 while ($i < $testsLoop) {    
-    $misspellings = $aspell->check($content, ['fr_FR']);
+    $misspellings = $checker->check($content, ['fr_FR'], ['Pspell context']);
 
     // foreach ($misspellings as $misspelling) {
     //     print_r([

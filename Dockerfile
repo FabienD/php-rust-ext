@@ -6,10 +6,12 @@ LABEL maintainer="fabien@myprod.net"
 # Prepare devcontainer
 RUN apt-get update && apt-get install -y --no-install-recommends \
     clang \
-    aspell \
+    aspell libpspell-dev \
     aspell-fr \
     aspell-en \
     && mkdir -p /workspaces
+
+RUN docker-php-ext-install pspell
 
 # Switch user
 USER dockeruser

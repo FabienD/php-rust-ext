@@ -6,7 +6,7 @@ $testName = "PHP Ext";
 
 $i = 0;
 
-$checker = new SpellCheck("fr_FR");
+$checker = new SpellCheck("en");
 var_dump($checker->check("wagon"));
 var_dump($checker->check("house"));
 var_dump($checker->check("fleur"));

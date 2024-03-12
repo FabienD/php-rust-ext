@@ -1,6 +1,5 @@
 #![cfg_attr(windows, feature(abi_vectorcall))]
 use ext_php_rs::prelude::*;
-use ffi::AspellConfig;
 use libc::{c_char, c_int};
 
 mod ffi;
@@ -10,6 +9,7 @@ pub struct SpellResult {
     //misspelled: String,
     //pos: usize,
     word: String,
+    check: c_int,
     //line: usize,
     //suggestions: Option<Vec<String>>,
 }
@@ -78,13 +78,15 @@ impl SpellCheck {
     pub fn check(&mut self, name: &str) -> Option<SpellResult> {
         
         let check = unsafe {
-            ffi::aspell_speller_check(self.spellchecker, name.as_ptr() as *const c_char, name.len() as c_int)
+            ffi::aspell_speller_check(self.spellchecker, name.as_ptr() as *const c_char, -1)
         };
-        if check == 0 {
-            return Some(SpellResult {
-                word: name.to_string(),
-            });
-        }
+        
+        return Some(SpellResult {
+            word: name.to_string(),
+            check,
+        });
+
+        
         None
     }
 }

@@ -24,6 +24,7 @@ pub struct AspellCanHaveError;
 extern "C" {
     pub fn new_aspell_config() -> *mut AspellConfig;
     pub fn aspell_config_replace(config: *mut AspellConfig, key: *const c_char, value: *const c_char);
+    pub fn aspell_config_retrieve(config: *mut AspellConfig, key: *const c_char);
     pub fn delete_aspell_config(config: *mut AspellConfig);
     pub fn new_aspell_speller(config: *mut AspellConfig) -> *mut AspellCanHaveError;
     pub fn aspell_error_number(possible_err: *mut AspellCanHaveError) -> c_int;

@@ -4,7 +4,7 @@ build:
 
 # Simple extension php calling Aspell bin
 ext_php:
-     php -d extension=./target/release/libispell.so test_with_ext.php
+     php -d extension=./target/release/libspellckeck.so test_with_ext.php
 
 # Simple Pure php test calling Aspell bin
 aspell_php:
@@ -16,4 +16,4 @@ pspell_php:
 
 # Display PHP info
 info:
-     php -d extension=./target/release/libispell.so info.php
+     php -d extension=./target/release/libspellckeck.so info.php

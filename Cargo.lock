@@ -482,20 +482,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "ispell"
-version = "0.1.0"
-dependencies = [
- "ext-php-rs",
- "ispell 0.3.1",
-]
-
-[[package]]
-name = "ispell"
-version = "0.3.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1cbac553db0de22941d218bc20d2e121c960e6226f7a1b66ea195958db05f2da"
-
-[[package]]
 name = "itoa"
 version = "1.0.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -969,6 +955,15 @@ name = "smallvec"
 version = "1.13.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e6ecd384b10a64542d77071bd64bd7b231f4ed5940fba55e98c3de13824cf3d7"
+
+[[package]]
+name = "spellckeck"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "ext-php-rs",
+ "libc",
+]
 
 [[package]]
 name = "strsim"

@@ -1,5 +1,5 @@
 [package]
-name = "ispell"
+name = "spellckeck"
 version = "0.1.0"
 edition = "2021"
 
@@ -10,7 +10,8 @@ crate-type = ["cdylib"]
 
 [dependencies]
 ext-php-rs = "*"
-ispell = "*"
+anyhow = "*"
+libc = "*"
 
 [profile.release]
 strip = "debuginfo"

@@ -6,7 +6,7 @@ LABEL maintainer="fabien@myprod.net"
 # Prepare devcontainer
 RUN apt-get update && apt-get install -y --no-install-recommends \
     clang \
-    aspell libpspell-dev \
+    aspell libaspell-dev libpspell-dev \
     aspell-fr \
     aspell-en \
     && mkdir -p /workspaces

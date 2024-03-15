@@ -2,31 +2,22 @@
 
 include "test_header.php";
 
-$testName = "PHP Ext";
-
-$i = 0;
-
+$testName = "PHP Rust Ext";
 $checker = new SpellCheck("fr_FR");
-// var_dump($checker->check("wagon"));
-// var_dump($checker->check("house"));
-// var_dump($checker->check("fleur"));
-// var_dump($checker->check("boat"));
-// var_dump($checker->check("bateau"));
 
 while ($i < $testsLoop) {
 
     $misspellings = $checker->check($content);
     
-    // foreach ($misspellings as $misspelling) {
-    //     print_r([
-    //         //$misspelling->misspelled,
-    //         //$misspelling->pos,
-    //         $misspelling->line,
-    //         //$misspelling->suggestions
-    //     ]);
-    // }
-
-    unset($misspelling);
+    foreach ($misspellings as $misspelling) {
+        $misspelling_counter++;
+        // print_r([
+        //     $misspelling->getWord(),
+        //     $misspelling->getLineNumber(),
+        //     $misspelling->getOffset(),
+        //     $misspelling->getSuggestions(),
+        // ]);
+    }
     $i++;
 }
 

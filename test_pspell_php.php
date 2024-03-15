@@ -7,22 +7,20 @@ use PhpSpellcheck\Spellchecker\PHPPspell;
 require_once __DIR__ . '/vendor/autoload.php';
 
 $testName = "PHP Ext";
-$i = 0;
 $checker = new PHPPspell();
 
 while ($i < $testsLoop) {    
     $misspellings = $checker->check($content, ['fr_FR'], ['Pspell context']);
 
-    // foreach ($misspellings as $misspelling) {
-    //     print_r([
-    //         $misspelling->getWord(),
-    //         $misspelling->getLineNumber(),
-    //         $misspelling->getOffset(),
-    //         $misspelling->getSuggestions(),
-    //     ]);
-    // }
-
-    unset($misspelling);
+    foreach ($misspellings as $misspelling) {
+        $misspelling_counter++;
+        // print_r([
+        //     $misspelling->getWord(),
+        //     $misspelling->getLineNumber(),
+        //     $misspelling->getOffset(),
+        //     $misspelling->getSuggestions(),
+        // ]);
+    }
     $i++;
 }
 

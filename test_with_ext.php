@@ -6,28 +6,28 @@ $testName = "PHP Ext";
 
 $i = 0;
 
-$checker = new SpellCheck("en");
-var_dump($checker->check("wagon"));
-var_dump($checker->check("house"));
-var_dump($checker->check("fleur"));
-var_dump($checker->check("boat"));
-var_dump($checker->check("bateau"));
+$checker = new SpellCheck("fr_FR");
+// var_dump($checker->check("wagon"));
+// var_dump($checker->check("house"));
+// var_dump($checker->check("fleur"));
+// var_dump($checker->check("boat"));
+// var_dump($checker->check("bateau"));
 
-// while ($i < $testsLoop) {
+while ($i < $testsLoop) {
 
-//     $misspellings = $checker->check($content);
+    $misspellings = $checker->check($content);
     
-//     foreach ($misspellings as $misspelling) {
-//         print_r([
-//             //$misspelling->misspelled,
-//             //$misspelling->pos,
-//             $misspelling->line,
-//             //$misspelling->suggestions
-//         ]);
-//     }
+    // foreach ($misspellings as $misspelling) {
+    //     print_r([
+    //         //$misspelling->misspelled,
+    //         //$misspelling->pos,
+    //         $misspelling->line,
+    //         //$misspelling->suggestions
+    //     ]);
+    // }
 
-//     unset($misspelling);
-//     $i++;
-// }
+    unset($misspelling);
+    $i++;
+}
 
 include "test_footer.php";

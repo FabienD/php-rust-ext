@@ -11,6 +11,7 @@ crate-type = ["cdylib"]
 [dependencies]
 ext-php-rs = "*"
 libc = "*"
+unicode-segmentation = "*"
 
 [profile.release]
 strip = "debuginfo"

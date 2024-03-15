@@ -1,16 +1,17 @@
 #![cfg_attr(windows, feature(abi_vectorcall))]
+use std::ffi::CString;
+
 use ext_php_rs::prelude::*;
-use libc::{c_char, c_int};
+use libc::c_char;
+use unicode_segmentation::UnicodeSegmentation;
 
 mod ffi;
 
 #[derive(Debug, ZvalConvert)]
 pub struct SpellResult {
-    //misspelled: String,
-    //pos: usize,
-    word: String,
-    check: c_int,
-    //line: usize,
+    misspelled: String,
+    pos: usize,
+    line: usize,
     //suggestions: Option<Vec<String>>,
 }
 
@@ -33,13 +34,12 @@ impl SpellCheck {
             );
         }
 
+        let config_key = CString::new("lang").expect("CString Config key creation failed");
+        let config_value = CString::new(locale).expect("CString Config value creation failed");
+
         unsafe {
-            ffi::aspell_config_replace(base_config, "lang".as_ptr() as *const c_char, locale.as_ptr() as *const c_char)
-        };       
-        // unsafe {
-        //     ffi::aspell_config_replace(base_config, "encoding".as_ptr() as *const c_char, "utf-8".as_ptr()  as *const c_char)
-        // }
-        
+            ffi::aspell_config_replace(base_config, config_key.as_ptr() as *const c_char, config_value.as_ptr() as *const c_char)
+        };
 
         let possible_err = unsafe {
             ffi::new_aspell_speller(base_config)
@@ -74,20 +74,37 @@ impl SpellCheck {
         }
     }
 
-    // Check misspelled word
-    pub fn check(&mut self, name: &str) -> Option<SpellResult> {
-        
-        let check = unsafe {
-            ffi::aspell_speller_check(self.spellchecker, name.as_ptr() as *const c_char, -1)
-        };
-        
-        return Some(SpellResult {
-            word: name.to_string(),
-            check,
-        });
+    // Check misspelled words
+    pub fn check(&mut self, text: &str) -> Vec<SpellResult> {
+        let mut results = Vec::new();
 
+        // Split by line.
+        let lines = text.lines();
         
-        None
+        for (i, line) in lines.enumerate() {
+            // Line word segmentation.
+            let seg_words = line.unicode_word_indices().collect::<Vec<(usize, &str)>>();
+            
+            for word in seg_words {
+                let word_to_check = CString::new(word.1).expect("Word creation failed");
+
+                let check = unsafe {
+                    ffi::aspell_speller_check(self.spellchecker, word_to_check.as_ptr() as *const c_char, -1)
+                };
+
+                if check != 1 {
+                    results.push(
+                        SpellResult {
+                            misspelled: word.1.to_string(),
+                            pos: word.0,
+                            line: i,
+                        }
+                    );
+                }
+            }
+        }
+        
+        results
     }
 }
 

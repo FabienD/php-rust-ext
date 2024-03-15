@@ -7,7 +7,7 @@ ext_php:
      php -d extension=./target/release/libspellckeck.so test_with_ext.php
 
 # Simple Pure php test calling Aspell bin
-aspell_php:
+aspell_bin_php:
      php test_aspell_php.php
 
 # Simple php test with Pspell ext

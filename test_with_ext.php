@@ -2,23 +2,28 @@
 
 include "test_header.php";
 
-$testName = "PHP Rust Ext";
-$checker = new SpellCheck("fr_FR");
+$testName = "PHP Pure Rust Extension";
 
-while ($i < $testsLoop) {
-
-    $misspellings = $checker->check($content);
+foreach($tests as $locale => $featureFile) {
+    $content = file_get_contents(__DIR__ . $featureFile);
+    $checker = new SpellCheck($locale);
+    $misspelling_counter[$locale] = 0;
+    $i = 0;
     
-    foreach ($misspellings as $misspelling) {
-        $misspelling_counter++;
-        // print_r([
-        //     $misspelling->getWord(),
-        //     $misspelling->getLineNumber(),
-        //     $misspelling->getOffset(),
-        //     $misspelling->getSuggestions(),
-        // ]);
+    while ($i < $testsLoop) {    
+        $misspellings = $checker->check($content);
+        
+        foreach ($misspellings as $misspelling) {
+            $misspelling_counter[$locale]++;
+            // print_r([
+            //     $misspelling->getWord(),
+            //     $misspelling->getLineNumber(),
+            //     $misspelling->getOffset(),
+            //     $misspelling->getSuggestions(),
+            // ]);
+        }
+        $i++;
     }
-    $i++;
 }
 
 include "test_footer.php";

@@ -2,6 +2,9 @@
 build:
      cargo build --release
 
+# Run all PHP tests
+bench: ext_php aspell_bin_php pspell_php
+
 # Simple extension php calling Aspell bin
 ext_php:
      php -d extension=./target/release/libspellckeck.so test_with_ext.php
@@ -14,6 +17,6 @@ aspell_bin_php:
 pspell_php:
      php test_pspell_php.php
 
-# Display PHP info
+# Display PHP info for Rust Ext.
 info:
      php -d extension=./target/release/libspellckeck.so info.php

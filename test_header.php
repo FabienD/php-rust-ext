@@ -2,12 +2,17 @@
 
 declare(strict_types=1);
 
-$content = file_get_contents(__DIR__ . '/features/simple_fr.txt');
-$testsLoop = 1000;
+$tests = [
+    'en_US' => '/features/simple_en.txt',
+    'fr_FR' => '/features/simple_fr.txt',
+];
+
+$testsLoop = 100;
+
+print_r('----------------------------------------------------------');
 
 memory_reset_peak_usage();
 
-$i = 0;
-$misspelling_counter = 0;
+$misspelling_counter = [];
 
 $start = microtime(true);

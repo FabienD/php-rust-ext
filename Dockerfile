@@ -7,8 +7,7 @@ LABEL maintainer="fabien@myprod.net"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     clang \
     aspell libaspell-dev libpspell-dev \
-    aspell-fr \
-    aspell-en \
+    aspell-fr aspell-en aspell-es \
     && mkdir -p /workspaces
 
 RUN docker-php-ext-install pspell

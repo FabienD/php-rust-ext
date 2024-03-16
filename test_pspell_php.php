@@ -23,7 +23,6 @@ foreach($tests as $locale => $featureFile) {
             //     $misspelling->getWord(),
             //     $misspelling->getLineNumber(),
             //     $misspelling->getOffset(),
-            //     $misspelling->getSuggestions(),
             // ]);
         }
         $i++;

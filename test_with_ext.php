@@ -16,10 +16,9 @@ foreach($tests as $locale => $featureFile) {
         foreach ($misspellings as $misspelling) {
             $misspelling_counter[$locale]++;
             // print_r([
-            //     $misspelling->getWord(),
-            //     $misspelling->getLineNumber(),
-            //     $misspelling->getOffset(),
-            //     $misspelling->getSuggestions(),
+            //     $misspelling->misspelled,
+            //     $misspelling->pos,
+            //     $misspelling->line,
             // ]);
         }
         $i++;

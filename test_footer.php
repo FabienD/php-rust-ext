@@ -9,6 +9,7 @@ $testName execution time in seconds : $total
 
 Misspelling count FR : " . $misspelling_counter["fr_FR"] . "
 Misspelling count EN : " . $misspelling_counter["en_US"] . "
+Misspelling count ES : " . $misspelling_counter["es_ES"] . "
 
 Memory usage : $memory Mo
 Memory peek usage : $peek Mo

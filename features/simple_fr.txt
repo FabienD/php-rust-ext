@@ -1,4 +1,8 @@
+Une phrase sans faute d'othorgraphe.
 Une phrase avec une faute d'othorgraphe.
 Une frase avec deux fautes d'othorgraphe.
 Une frase avec troi fautes d'othorgraphe.
- 
+1 phrase avec un chiffre.
+101 Dalmatiens, c'est trop.
+1re phrase avec une abréviation.
+Une phrase avec un nom commun comme la ville de Nantes.

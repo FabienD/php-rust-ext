@@ -2,3 +2,7 @@ One sentence without misspelling.
 Secondd sentence with one misspelling.
 Third santence, with twwo spelling mistakes.
 Fouth santence, with thrree spelling mistakes.
+1 sentence with a number.
+101 Dalmatians is too much.
+1st sentence with an abbreviation.
+One sentence with a proper noun, the city of Nantes.

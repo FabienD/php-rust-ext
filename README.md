@@ -1,3 +1,3 @@
 # PHP extension with Rust experimentation
 
-Rust [ext-php-rs project](https://davidcole1340.github.io/ext-php-rs/introduction.html)
+Rust [ext-php-rs project](https://github.com/extphprs/ext-php-rs)
